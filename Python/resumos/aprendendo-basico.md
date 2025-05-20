@@ -180,9 +180,100 @@ Operadores comuns em condições:
 - Menor ou igual: <=  
 - Teste lógico: and, or, not
 
+## Loops
+
+### 📌 1. O que são Loops (ou Estruturas de Repetição)?
+
+São blocos de código que executam repetidamente enquanto uma condição for verdadeira ou até acabar uma sequência de dados.
+No Python, temos dois principais tipos:  
+
+- for
+- while
+
+### 🔁 2. Loop for
+
+Usado para iterar sobre elementos de uma sequência (listas, tuplas, strings, dicionários, etc).
+
+Sintaxe:
+```bash
+for variavel in iteravel:
+    # bloco de código
+```
+
+Exemplo com lista:
+```bash
+lista = [1, 2, 3]
+for item in lista:
+    print(item)
+```
+
+*for...else*  
+Permite executar um bloco final após o loop ser completado (sem break).
+```bash
+for item in lista:
+    print(item)
+else:
+    print("Loop finalizado com sucesso.")
+```
+
+### 🔁 3. Loop while
+
+Executa enquanto uma condição for verdadeira.  
+Sintaxe:
+
+```bash
+while condicao:
+    # bloco de código
+```
+Exemplo:
+
+```bash
+contador = 0
+while contador < 5:
+    print(contador)
+    contador += 1
+```
+
+*while...else*  
+Roda o bloco else se o loop terminar normalmente (sem break).
+
+### 🛠️ 4. Funções Auxiliares
+
+range(start, stop, step)  
+Gera uma sequência de números.
+
+```bash
+for i in range(3):
+    print(i)  # 0, 1, 2
+enumerate(iteravel)
+```
+
+*enumerate(iteravel)*  
+Retorna índice e valor ao iterar.
+
+```bash
+for i, valor in enumerate(['a', 'b']):
+    print(i, valor)
+``` 
+
+### ⚠️ 5. Comandos de Controle
+
+- break: interrompe o loop imediatamente.  
+- continue: pula a iteração atual e continua o loop.  
+- pass: ignora a instrução atual (usado como placeholder).  
+
+Exemplo com *break*:
+```bash
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+```
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
 [PEP 8](https://peps.python.org/pep-0008/)  
 [Tipos de Variáveis disponíveis no Python](https://pythonacademy.com.br/blog/tipos-de-variaveis-no-python)  
 [Estruturas Condicionais no Python](https://www.hashtagtreinamentos.com/estruturas-condicionais-no-python?gad_source=1&gad_campaignid=14380361989&gbraid=0AAAAADLlh88YmRgAAIwFuyNv1YaArfjU9&gclid=CjwKCAjwravBBhBjEiwAIr30VITs5Yu4YR1PjfTwTwAxDh_jbP_WdpExxhlkSXBttZNkJWmoonYPBRoCDZMQAvD_BwE)  
+[Loops e Estruturas de Repetição no Python](https://pythonacademy.com.br/blog/estruturas-de-repeticao)
