@@ -270,6 +270,30 @@ for i in range(10):
     print(i)
 ```
 
+## Type Casting
+
+Python usa funções construtoras para mudar o tipo de uma variável.  
+Essas funções vêm das classes dos tipos primitivos.
+
+### 🔁 Funções principais de conversão:
+
+- int() → transforma em inteiro  
+  *Ex: int(2.8) → 2, int("3") → 3*
+
+- float() → transforma em número decimal (float)  
+  *Ex: float(1) → 1.0, float("4.2") → 4.2*
+
+- str() → transforma em string (texto)  
+  *Ex: str(2) → "2", str(3.0) → "3.0"*
+
+### ✅ Exemplos rápidos:
+
+```bash
+x = int("5")     # x = 5 (int)
+y = float("3.2") # y = 3.2 (float)
+z = str(10)      # z = '10' (str)
+```
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
