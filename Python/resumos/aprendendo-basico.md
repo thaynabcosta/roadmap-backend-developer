@@ -294,6 +294,71 @@ y = float("3.2") # y = 3.2 (float)
 z = str(10)      # z = '10' (str)
 ```
 
+## Erros e Exceções
+
+### Erros de Sintaxe (SyntaxError)
+
+Acontecem quando o código não está corretamente escrito.  
+Exemplo: esquecer os dois pontos no while → while True print('Olá').  
+O interpretador aponta onde ocorreu o erro, mas nem sempre é exatamente ali o problema real.  
+
+### Exceções
+
+São erros em tempo de execução: o código é sintaticamente correto, mas falha ao rodar.
+
+Exemplos comuns:
+
+- ZeroDivisionError: divisão por zero.
+- NameError: nome não definido.
+- TypeError: operação entre tipos incompatíveis.
+
+Python mostra um stack traceback, que indica onde o erro começou.
+
+### Tratamento de Exceções com try / except
+
+Permite capturar e lidar com exceções, evitando que o programa quebre.
+
+Estrutura:
+
+```bash
+try:
+    # Código que pode falhar
+except TipoErro:
+    # O que fazer se o erro acontecer
+```
+
+Pode ter múltiplos except, cláusula else (executada se nada falhar), e finally (executada sempre).
+
+Você pode capturar mais de um tipo de erro em uma tupla:
+
+```bash
+except (TypeError, NameError):
+```
+
+Hierarquia importa: exceções filhas precisam ser tratadas antes das pais.  
+Se except B: vier antes de except D:, D nunca será alcançado.
+
+É possível acessar os argumentos da exceção:
+
+```bash
+except Exception as e:
+    print(e.args)
+```
+
+### Levantar Exceções com raise
+
+Você pode forçar a ocorrência de um erro usando raise.
+
+```bash
+raise ValueError("Mensagem de erro")
+```
+
+### Boas práticas:
+
+- Seja específico nos tipos de exceções que captura.
+- Use Exception como curinga com cautela.
+- Evite tratar exceções que você não entende ou não sabe por que estão ocorrendo
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
@@ -301,3 +366,4 @@ z = str(10)      # z = '10' (str)
 [Tipos de Variáveis disponíveis no Python](https://pythonacademy.com.br/blog/tipos-de-variaveis-no-python)  
 [Estruturas Condicionais no Python](https://www.hashtagtreinamentos.com/estruturas-condicionais-no-python?gad_source=1&gad_campaignid=14380361989&gbraid=0AAAAADLlh88YmRgAAIwFuyNv1YaArfjU9&gclid=CjwKCAjwravBBhBjEiwAIr30VITs5Yu4YR1PjfTwTwAxDh_jbP_WdpExxhlkSXBttZNkJWmoonYPBRoCDZMQAvD_BwE)  
 [Loops e Estruturas de Repetição no Python](https://pythonacademy.com.br/blog/estruturas-de-repeticao)
+[Erros e Exceções](https://docs.python.org/pt-br/3.13/tutorial/errors.html)
