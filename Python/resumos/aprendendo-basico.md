@@ -359,6 +359,64 @@ raise ValueError("Mensagem de erro")
 - Use Exception como curinga com cautela.
 - Evite tratar exceções que você não entende ou não sabe por que estão ocorrendo
 
+## Functions, Builtin Functions
+
+- Função é um bloco de código reutilizável que executa uma tarefa específica.
+- Vantagens: modularização, organização e reusabilidade do código.
+
+### ✅ Características de uma função
+
+- Tem um nome.
+- Pode ter parâmetros (opcional).
+- Pode ter uma docstring (opcional, mas recomendada).
+- Possui um corpo com comandos.
+- Pode ou não ter valor de retorno (com return).
+
+### 🧱 Sintaxe
+
+```bash
+def nome_da_funcao(parametros):
+    """docstring explicativa"""
+    <comandos>
+    return <resultado> (opcional)
+```
+
+### 📌 Exemplo
+
+```bash
+def fahr_to_celsius(temp):
+    """Converte Fahrenheit para Celsius"""
+    return ((temp - 32) * (5/9))
+```
+
+### 🗣️ Função sem retorno
+
+```bash
+def cumprimentar(nome):
+    print(f"Olá {nome}, seja bem-vindo!")
+```
+
+### ⚙️ Parâmetros padrão
+
+```bash
+def padrao(valor=100):
+    print("O valor definido foi:", valor)
+```
+
+### 📝 Docstring
+
+- Serve para documentar o que a função faz.
+- Pode ser acessada com: print(nome_funcao.__doc__) ou help(nome_funcao).
+
+### 🔄 Comando return
+
+- Encerra a execução da função e retorna um valor.
+- Se usado sem valor, retorna None.
+
+### Observação
+
+O link [Funções embutidas](https://docs.python.org/pt-br/3.13/library/functions.html) leva à documentação oficial do Python 3.13 e apresenta todas as funções built-in da linguagem.
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
@@ -367,3 +425,4 @@ raise ValueError("Mensagem de erro")
 [Estruturas Condicionais no Python](https://www.hashtagtreinamentos.com/estruturas-condicionais-no-python?gad_source=1&gad_campaignid=14380361989&gbraid=0AAAAADLlh88YmRgAAIwFuyNv1YaArfjU9&gclid=CjwKCAjwravBBhBjEiwAIr30VITs5Yu4YR1PjfTwTwAxDh_jbP_WdpExxhlkSXBttZNkJWmoonYPBRoCDZMQAvD_BwE)  
 [Loops e Estruturas de Repetição no Python](https://pythonacademy.com.br/blog/estruturas-de-repeticao)
 [Erros e Exceções](https://docs.python.org/pt-br/3.13/tutorial/errors.html)
+[Funções](https://pythoniluminado.netlify.app/funcoes)
