@@ -417,6 +417,81 @@ def padrao(valor=100):
 
 O link [Funções embutidas](https://docs.python.org/pt-br/3.13/library/functions.html) leva à documentação oficial do Python 3.13 e apresenta todas as funções built-in da linguagem.
 
+## Lists, Tuple, Sets
+
+### 🔹 list — Lista (Mutável, Ordenada)
+
+- Tipo: Sequência (Sequence)
+- Mutável: Sim
+- Ordenada: Sim
+- Permite duplicatas: Sim
+- Usos comuns: Coleções homogêneas de dados; listas de itens; estruturas onde elementos mudam com frequência.
+
+Exemplo: 
+
+```bash
+palavras = ["casa", "carro", "praia"]
+```
+
+📌 Vantagens:
+
+- Fácil de modificar (append, remove, etc.).
+- Ideal para dados "anônimos" e homogêneos.
+
+⚠️ Desvantagens:
+
+- Ineficiente para buscas frequentes (in é O(n)).
+- Não pode ser usada como chave de dicionário ou elemento de set.
+
+### 🔹 tuple — Tupla (Imutável, Ordenada)
+
+- Tipo: Sequência (Sequence)
+- Mutável: Não
+- Ordenada: Sim
+- Permite duplicatas: Sim
+- Usos comuns: Representar registros fixos (ex: coordenadas, datas, chave composta).
+
+Exemplo: 
+
+```bash
+coordenadas = (23.5, 45.2)
+```
+
+📌 Vantagens:
+
+- Mais eficiente que lista (menos memória).
+- Pode ser usada como chave em dicionários.
+- Suporte a namedtuple para tornar dados mais legíveis.
+
+⚠️ Desvantagens:
+
+- Não pode ser modificada após a criação.
+
+### 🔹 set — Conjunto (Mutável, Não Ordenado)
+
+- Tipo: Container
+- Mutável: Sim
+- Ordenada: Não
+- Permite duplicatas: Não
+- Usos comuns: Remover duplicatas, verificar presença de elementos, operações matemáticas (união, interseção).
+
+Exemplo: 
+
+```bash
+letras = {"a", "b", "c"}
+```
+
+📌 Vantagens:
+
+- Busca super eficiente (in é O(1)).
+- Ideal para grandes volumes de dados únicos.
+- Suporta operações matemáticas: | (união), & (interseção), - (diferença).
+
+⚠️ Desvantagens:
+
+- Elementos não têm posição (sem .index(), .find()).
+- Elementos devem ser imutáveis (listas não são permitidas).
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
@@ -426,3 +501,4 @@ O link [Funções embutidas](https://docs.python.org/pt-br/3.13/library/function
 [Loops e Estruturas de Repetição no Python](https://pythonacademy.com.br/blog/estruturas-de-repeticao)
 [Erros e Exceções](https://docs.python.org/pt-br/3.13/tutorial/errors.html)
 [Funções](https://pythoniluminado.netlify.app/funcoes)
+[Lists, Tuples, Sets](https://pt.stackoverflow.com/questions/360900/diferen%C3%A7as-entre-list-tuple-e-set)
