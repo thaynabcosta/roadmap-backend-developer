@@ -492,6 +492,78 @@ letras = {"a", "b", "c"}
 - Elementos não têm posição (sem .index(), .find()).
 - Elementos devem ser imutáveis (listas não são permitidas).
 
+## Dicionários
+
+### 🔍 O que são dicionários em Python?
+Dicionários são estruturas de dados que armazenam pares de chave:valor. Eles permitem acesso rápido a dados com base em uma chave única.
+
+Sintaxe básica:
+
+```bash
+meu_dicionario = {
+    "nome": "Bia",
+    "idade": 27,
+    "profissao": "Desenvolvedora"
+}
+```
+
+Chave: "nome"  
+Valor: "Bia"
+
+Você pode acessar assim:
+
+```bash
+print(meu_dicionario["nome"])  # Saída: Bia
+```
+
+### 🛠️ Operações essenciais:
+
+1. Acessar valor por chave
+```bash
+valor = meu_dicionario["idade"]
+```
+
+2. Adicionar ou alterar valores
+```bash
+meu_dicionario["cidade"] = "São Paulo"  # Adiciona
+meu_dicionario["idade"] = 28            # Altera
+```
+
+3. Remover elementos
+```bash
+del meu_dicionario["profissao"]
+```
+
+4. Verificar se uma chave existe
+```bash
+if "nome" in meu_dicionario:
+    print("Chave existe!")
+```
+
+5. Iterar sobre o dicionário
+```bash
+for chave, valor in meu_dicionario.items():
+    print(f"{chave}: {valor}")
+```
+
+### 💣 Avançado (mas útil):
+
+- Dicionário aninhado:
+```bash
+dados = {
+    "usuario": {
+        "nome": "Bia",
+        "idade": 27
+    }
+}
+print(dados["usuario"]["nome"])  # Saída: Bia
+```
+
+- Método get() para evitar erros:
+```bash
+print(meu_dicionario.get("altura", "Não encontrado"))
+```
+
 ## Referências
 
 [Sintaxe](https://pythoniluminado.netlify.app/sintaxe)  
@@ -501,4 +573,6 @@ letras = {"a", "b", "c"}
 [Loops e Estruturas de Repetição no Python](https://pythonacademy.com.br/blog/estruturas-de-repeticao)
 [Erros e Exceções](https://docs.python.org/pt-br/3.13/tutorial/errors.html)
 [Funções](https://pythoniluminado.netlify.app/funcoes)
-[Lists, Tuples, Sets](https://pt.stackoverflow.com/questions/360900/diferen%C3%A7as-entre-list-tuple-e-set)
+[Lists, Tuples, Sets](https://pt.stackoverflow.com/questions/360900/diferen%C3%A7as-entre-list-tuple-e-set)  
+[Dicionários](https://docs.python.org/pt-br/3/tutorial/datastructures.html#dictionaries)
+
