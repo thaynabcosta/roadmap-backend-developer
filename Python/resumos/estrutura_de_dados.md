@@ -61,3 +61,7 @@ print(valores * 2)  # Multiplica todos os elementos
 - Quando vai fazer muitos cálculos numéricos.  
 - Quando precisa de eficiência e velocidade.
 
+## Referências
+
+[Python Arrays](https://www-w3schools-com.translate.goog/python/python_arrays.asp?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)  
+
