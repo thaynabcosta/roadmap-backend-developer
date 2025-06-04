@@ -14,4 +14,4 @@ numeros_multi = np.array([1, 2, 3, 5, 7])
 
 print(comidas)
 print(numeros)
-print(numeros_multi*2)
+print(numeros_multi*3)
