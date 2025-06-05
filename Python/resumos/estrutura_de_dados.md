@@ -1,6 +1,6 @@
 # Estrutura de Dados
 
-## Arrays e Listas Encadeadas
+## Arrays
 
 ### ✅ O que é um array?
 
@@ -61,7 +61,19 @@ print(valores * 2)  # Multiplica todos os elementos
 - Quando vai fazer muitos cálculos numéricos.  
 - Quando precisa de eficiência e velocidade.
 
+## Linked Lists
+
+### 📌 O que é uma Linked List?
+
+É uma estrutura de dados linear composta por nós (nodes), onde cada nó contém dois elementos:
+
+- Valor (dados)  
+- Referência para o próximo nó (ponteiro)
+
+👉 Diferente de listas nativas do Python (list), a Linked List não usa índices e não armazena os dados em blocos contínuos de memória. Isso a torna eficiente para inserções e deleções dinâmicas.
+
 ## Referências
+
 
 [Python Arrays](https://www-w3schools-com.translate.goog/python/python_arrays.asp?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)  
 
