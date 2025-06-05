@@ -113,6 +113,15 @@ class LinkedList:
             current = current.next
         print("None")
 ```
+### 📚 Operações comuns:
+
+| Operação          | Complexidade | Observação                              |
+| ----------------- | ------------ | --------------------------------------- |
+| Inserir no início | O(1)         | Simples: só altera o ponteiro da cabeça |
+| Inserir no fim    | O(n)         | Precisa percorrer a lista               |
+| Remover nó        | O(n)         | Precisa encontrar o nó anterior         |
+| Buscar elemento   | O(n)         | Não tem índice, precisa percorrer       |
+
 
 ## Referências
 
