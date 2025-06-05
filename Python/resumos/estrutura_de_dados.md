@@ -122,6 +122,11 @@ class LinkedList:
 | Remover nó        | O(n)         | Precisa encontrar o nó anterior         |
 | Buscar elemento   | O(n)         | Não tem índice, precisa percorrer       |
 
+### ⚔️ Quando usar Linked List?
+
+- Quando há muitas inserções/remoções dinâmicas  
+- Quando o custo de realocação de memória (como nas list) for ruim  
+- Quando quiser controlar estrutura de dados manualmente
 
 ## Referências
 
