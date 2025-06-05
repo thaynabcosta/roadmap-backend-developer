@@ -128,6 +128,12 @@ class LinkedList:
 - Quando o custo de realocação de memória (como nas list) for ruim  
 - Quando quiser controlar estrutura de dados manualmente
 
+### ❌ Desvantagens:
+
+- Acesso direto é lento (não tem índice)  
+- Gasta mais memória (guarda o ponteiro junto com o valor)  
+- Difícil de depurar se mal implementado
+
 ## Referências
 
 
