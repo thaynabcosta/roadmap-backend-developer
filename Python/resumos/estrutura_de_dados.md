@@ -72,6 +72,15 @@ print(valores * 2)  # Multiplica todos os elementos
 
 👉 Diferente de listas nativas do Python (list), a Linked List não usa índices e não armazena os dados em blocos contínuos de memória. Isso a torna eficiente para inserções e deleções dinâmicas.
 
+### 🧱 Como é um nó (Node)?
+
+```bash
+class Node:
+    def __init__(self, data):
+        self.data = data  # valor armazenado
+        self.next = None  # ponteiro para o próximo nó
+```
+
 ## Referências
 
 
