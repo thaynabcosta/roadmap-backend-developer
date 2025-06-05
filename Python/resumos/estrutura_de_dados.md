@@ -80,6 +80,39 @@ class Node:
         self.data = data  # valor armazenado
         self.next = None  # ponteiro para o próximo nó
 ```
+### 🧵 Como funciona a lista ligada?
+
+Você começa com um head (cabeça) que aponta para o primeiro nó. Cada nó aponta para o próximo, até chegar em None, que representa o fim da lista.
+
+### 🛠️ Exemplo básico de Linked List:
+
+```bash
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:  # se a lista estiver vazia
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:  # percorre até o último nó
+                current = current.next
+            current.next = new_node
+
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+```
 
 ## Referências
 
