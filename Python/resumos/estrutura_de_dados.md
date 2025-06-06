@@ -169,6 +169,20 @@ dicionario = {
 - Flexível: aceita qualquer tipo de valor.  
 - Leitura intuitiva: muito usado para JSON, APIs, banco de dados, etc.
 
+### ⚠️ Colisões
+
+Quando duas chaves geram o mesmo hash — o Python resolve isso internamente com técnicas como encadeamento. Você não precisa se preocupar no dia a dia.
+
+### 🛠️ Métodos úteis
+```bash
+d.get("chave", "valor padrão")      # Evita erro se chave não existe
+d.keys()                            # Retorna todas as chaves
+d.values()                          # Retorna todos os valores
+d.items()                           # Retorna (chave, valor) em tuplas
+d.pop("chave")                      # Remove a chave e retorna o valor
+d.update({"nova_chave": "valor"})  # Atualiza ou adiciona
+```
+
 ## Referências
 
 
