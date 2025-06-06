@@ -182,6 +182,20 @@ d.items()                           # Retorna (chave, valor) em tuplas
 d.pop("chave")                      # Remove a chave e retorna o valor
 d.update({"nova_chave": "valor"})  # Atualiza ou adiciona
 ```
+### 💥 Exemplo prático
+
+```bash
+estoque = {"banana": 6, "maçã": 4}
+estoque["laranja"] = 10  # Adiciona
+estoque["banana"] += 2   # Atualiza
+del estoque["maçã"]      # Remove
+```
+
+### 🧠 Dica de ouro
+
+Use dict quando:  
+- Você quer acessar dados rapidamente por uma chave.  
+- Precisa de estrutura flexível e dinâmica.
 
 ## Referências
 
