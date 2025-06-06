@@ -134,10 +134,22 @@ class LinkedList:
 - Gasta mais memória (guarda o ponteiro junto com o valor)  
 - Difícil de depurar se mal implementado
 
-# Hash Tables
+## Hash Tables
 
 É uma estrutura de dados que armazena pares chave:valor, permitindo acesso super rápido aos dados.  
 Em Python, a hash table é implementada pelo tipo dict (dicionário).
+
+### ⚙️ Como funciona internamente?
+
+- Hash Function: transforma a chave em um número (hash).  
+- Endereço na memória: esse número é usado como índice para armazenar o valor.  
+- Busca eficiente: em vez de procurar item por item, ele vai direto no "endereço".
+
+🔁 Exemplo:
+```bash
+aluno = {"nome": "Bia", "idade": 25}
+print(aluno["nome"])  # Resultado: "Bia"
+```
 
 ## Referências
 
