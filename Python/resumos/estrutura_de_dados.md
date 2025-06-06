@@ -163,6 +163,11 @@ dicionario = {
 - Chaves podem ser: strings, números, tuplas.  
 - Valores podem ser: qualquer coisa.
 
+### 🔥 Vantagens
+
+- Acesso rápido: O(1) para buscar, inserir e deletar.  
+- Flexível: aceita qualquer tipo de valor.  
+- Leitura intuitiva: muito usado para JSON, APIs, banco de dados, etc.
 
 ## Referências
 
