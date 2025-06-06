@@ -134,6 +134,11 @@ class LinkedList:
 - Gasta mais memória (guarda o ponteiro junto com o valor)  
 - Difícil de depurar se mal implementado
 
+# Hash Tables
+
+É uma estrutura de dados que armazena pares chave:valor, permitindo acesso super rápido aos dados.  
+Em Python, a hash table é implementada pelo tipo dict (dicionário).
+
 ## Referências
 
 
