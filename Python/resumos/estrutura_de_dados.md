@@ -151,6 +151,19 @@ aluno = {"nome": "Bia", "idade": 25}
 print(aluno["nome"])  # Resultado: "Bia"
 ```
 
+### 🧱 Estrutura
+
+```bash
+dicionario = {
+    "chave1": "valor1",
+    "chave2": "valor2"
+}
+```
+
+- Chaves podem ser: strings, números, tuplas.  
+- Valores podem ser: qualquer coisa.
+
+
 ## Referências
 
 
