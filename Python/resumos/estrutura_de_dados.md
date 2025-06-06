@@ -197,6 +197,113 @@ Use dict quando:
 - Você quer acessar dados rapidamente por uma chave.  
 - Precisa de estrutura flexível e dinâmica.
 
+## 📚 Heaps, Stacks (Pilha) e Queues
+
+## Heaps
+
+Metáfora: Pilha de pratos. O último que entra é o primeiro que sai (LIFO – Last In, First Out).  
+
+### ✅ Usos comuns:
+- Undo/redo (desfazer/refazer)  
+- Recursão  
+- Avaliação de expressões (ex: compiladores)  
+
+### 🧠 Conceito:
+Inserção e remoção acontecem sempre no topo.
+
+### 🔧 Implementação em Python:
+```bash
+stack = []
+# Push (adicionar)
+stack.append(10)
+# Pop (remover)
+valor = stack.pop()
+# Ver o topo
+topo = stack[-1]
+```
+
+### ⚠️ Observações:
+
+- Simples, eficiente.  
+- pop() lança erro se estiver vazia.
+
+## Queue (Fila)
+
+Metáfora: Fila de banco. O primeiro que entra é o primeiro que sai (FIFO – First In, First Out).
+
+### ✅ Usos comuns:
+
+- Processamento em ordem  
+- Sistemas de tarefas (ex: prints, downloads)  
+- Algoritmos de busca (BFS)
+
+### 🧠 Conceito:
+
+Inserção no fim, remoção no início.
+
+### 🔧 Implementações:
+
+- Usando collections.deque (melhor opção):
+```bash
+from collections import deque
+
+queue = deque()
+# Enqueue
+queue.append("A")
+# Dequeue
+item = queue.popleft()
+```
+
+Evite usar listas puras para filas, pois pop(0) é ineficiente (O(n)).
+
+## Heap (Montículo)
+
+Metáfora: Uma árvore binária especial onde o menor (ou maior) valor sempre está no topo.
+
+### ✅ Usos comuns:
+
+- Encontrar mínimo/máximo rapidamente  
+- Algoritmos como Dijkstra, A*  
+- Gerenciamento de prioridades (ex: filas de prioridade)
+
+### 🧠 Conceito:
+
+Heap mínimo: raiz sempre é o menor.  
+Não é ordenado totalmente, só a prioridade de acesso.  
+
+### 🔧 Implementação:
+
+```bash
+import heapq
+
+heap = []
+
+# Inserir (heapify automaticamente)
+heapq.heappush(heap, 3)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 2)
+
+# Remover menor
+menor = heapq.heappop(heap)
+
+# Ver menor sem remover
+top = heap[0]
+```
+
+### ⚠️ Observações:
+
+- O heapq usa listas, mas mantém a propriedade do heap.
+- Para max heap, insira números negativos ou use heapq._heapify_max() (não recomendado em produção).
+
+### ⚔️ Comparativo rápido:
+
+| Estrutura | Ordem de Acesso | Quando Usar                       | Complexidade     |
+| --------- | --------------- | --------------------------------- | ---------------- |
+| Stack     | LIFO            | Quando precisa desfazer ações     | O(1)             |
+| Queue     | FIFO            | Processamento em ordem de chegada | O(1) com `deque` |
+| Heap      | Prioridade      | Sempre pegar o menor/maior valor  | O(log n)         |
+
+
 ## Referências
 
 
