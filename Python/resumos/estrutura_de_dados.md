@@ -395,10 +395,259 @@ print(arvore.buscar(100)) # Retorna None
 - BST desbalanceada pode virar uma lista encadeada (O(n))  
 - Solução: usar árvores balanceadas (AVL, Red-Black Tree)
 
-## Referências
+## Recursion
 
+### 🔁 O que é recursão?
+
+É quando uma função chama a si mesma para resolver um problema dividido em partes menores.
+
+### Exemplo mental:
+
+Quer saber o fatorial de 5?  
+Você resolve assim:
+```bash
+5! = 5 × 4!
+4! = 4 × 3!
+...
+1! = 1
+```
+
+### 🧠 Estrutura básica da recursão:
+
+```bash
+def funcao(param):
+    if condição_base:
+        return resultado_simples
+    else:
+        return funcao(param_menor)
+```
+
+### ⚠️ Duas partes essenciais:
+
+- Condição de parada (caso base) → SEM ISSO, vira loop infinito.  
+- Chamada recursiva com input reduzido → pra ir se aproximando da parada.
+
+### ✅ Quando usar recursão?
+
+Use quando o problema:  
+- Pode ser quebrado em subproblemas iguais  
+- Tem uma estrutura repetitiva que depende do passo anterior  
+- Envolve árvores, grafos, backtracking, etc.
+- Exemplos:  
+    - Fatorial  
+    - Fibonacci  
+    - Percorrer árvores (DFS)  
+    - Resolver labirintos  
+    - Permutações, combinações
+
+### 🔧 Exemplo 1: Fatorial
+
+```bash
+def fatorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * fatorial(n - 1)
+fatorial(5) → 5 × 4 × 3 × 2 × 1 = 120
+```
+
+### 🔧 Exemplo 2: Fibonacci
+
+```bash
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+fibonacci(5) → 5 (0, 1, 1, 2, 3, 5)
+```
+
+*⚠️ Essa versão é lenta (recalcula muita coisa). Otimize com memoization ou programação dinâmica.*
+
+### ❌ Erros comuns:
+
+- Esquecer o caso base → crasha com RecursionError  
+- Caso base errado → loop infinito ou resultado incorreto  
+- Usar recursão onde loop seria mais simples e eficiente
+
+### 🧪 Recursion vs Loop
+| Situação                                      | Melhor usar |
+| --------------------------------------------- | ----------- |
+| Cálculo simples, repetitivo                   | Loop        |
+| Estruturas recursivas (árvores, grafos)       | Recursão    |
+| Resolver problema quebrando em partes menores | Recursão    |
+
+
+### 🚨 Limite de Recursão em Python
+
+Python tem um limite padrão de recursão máxima (geralmente 1000).  
+Se passar disso:
+
+```bash
+RecursionError: maximum recursion depth exceeded
+```
+Pode aumentar com:
+```bash
+import sys
+sys.setrecursionlimit(2000)
+```
+
+Só use isso se sabe o que está fazendo. Recursão profunda pode quebrar seu programa com stack overflow.
+
+## Sorting Algorithmes
+
+### 🧠 O que é "Sorting"?
+
+- É reorganizar uma lista em ordem (crescente ou decrescente).  
+- É base pra pesquisa binária, algoritmos de grafos, compressão, bancos de dados, tudo.
+
+### 🔢 Principais Algoritmos de Ordenação:
+
+| Algoritmo      | Complexidade Média | Estável? | In-place? | Quando usar?                                    |
+| -------------- | ------------------ | -------- | --------- | ----------------------------------------------- |
+| Bubble Sort    | O(n²)              | Sim      | Sim       | Ensino, não usar na prática                     |
+| Insertion Sort | O(n²)              | Sim      | Sim       | Pequenas listas já quase ordenadas              |
+| Selection Sort | O(n²)              | Não      | Sim       | Simples, mas ineficiente                        |
+| Merge Sort     | O(n log n)         | Sim      | Não       | Dados grandes onde a estabilidade importa       |
+| Quick Sort     | O(n log n)         | Não      | Sim       | Rápido na prática, exceto dados quase ordenados |
+| Heap Sort      | O(n log n)         | Não      | Sim       | Usa heap, bom para espaço limitado              |
+| TimSort        | O(n log n)         | Sim      | Sim       | Usado internamente em Python (`sorted()`)       |
+
+### 🔍 Explicação Rápida de Cada Um:
+
+### Bubble Sort
+
+- Compara pares adjacentes e troca se estiverem fora de ordem.
+- Repetição até estar ordenado.
+
+```bash
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(n - i - 1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+```
+
+Lento demais. Evita na prática.
+
+### Insertion Sort
+
+Vai pegando cada item e inserindo no lugar certo da parte já ordenada.
+
+```bash
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        chave = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > chave:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = chave
+```
+Bom pra listas pequenas ou quase ordenadas.
+
+### 🎯 Selection Sort
+
+Seleciona o menor elemento e coloca na posição correta.
+
+```bash
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_idx = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+```
+
+Simples, mas ineficiente e não estável.
+
+### 🔀 Merge Sort
+
+Divide a lista em partes, ordena cada uma e combina de volta ordenado.
+
+```bash
+def merge_sort(arr):
+    if len(arr) > 1:
+        meio = len(arr) // 2
+        esquerda = arr[:meio]
+        direita = arr[meio:]
+
+        merge_sort(esquerda)
+        merge_sort(direita)
+
+        i = j = k = 0
+        while i < len(esquerda) and j < len(direita):
+            if esquerda[i] < direita[j]:
+                arr[k] = esquerda[i]
+                i += 1
+            else:
+                arr[k] = direita[j]
+                j += 1
+            k += 1
+
+        arr[k:] = esquerda[i:] + direita[j:]
+```
+
+Estável, ótimo desempenho. Usa mais memória.
+
+### ⚡ Quick Sort
+
+Escolhe um pivô, separa menor e maior, ordena recursivamente.
+
+```bash
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivô = arr[0]
+    menores = [x for x in arr[1:] if x <= pivô]
+    maiores = [x for x in arr[1:] if x > pivô]
+    return quick_sort(menores) + [pivô] + quick_sort(maiores)
+```
+
+Muito rápido, mas ruim se os dados já estão quase ordenados (pior caso O(n²)).
+
+### 🛠️ Heap Sort
+
+Constrói um heap (estrutura de árvore) e extrai o menor/maior.
+
+```bash
+import heapq
+def heap_sort(arr):
+    heapq.heapify(arr)
+    return [heapq.heappop(arr) for _ in range(len(arr))]
+```
+
+Ótimo para grandes volumes e consumo de memória controlado. Não estável.
+
+### 🐍 TimSort (O que o Python usa internamente)
+
+```bash
+sorted(lista)
+lista.sort()
+TimSort = Merge Sort + Insertion Sort inteligente.
+```
+
+Muito rápido, estável, funciona bem com qualquer tipo de dado real.
+
+### 🚀 Qual usar na prática?
+
+| Situação                            | Algoritmo            |
+| ----------------------------------- | -------------------- |
+| Lista pequena ou quase ordenada     | Insertion Sort       |
+| Dados grandes, estabilidade importa | Merge Sort           |
+| Desempenho puro, sem estabilidade   | Quick Sort           |
+| Pouca memória disponível            | Heap Sort            |
+| Na vida real, em Python             | `sorted()` (TimSort) |
+
+
+## Referências
 
 [Python Arrays](https://www-w3schools-com.translate.goog/python/python_arrays.asp?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)  
 [Python Linked Lists](https://www-geeksforgeeks-org.translate.goog/python-linked-list/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)
 [Estruturas de Dados — Pilha, Fila e Heap](https://medium.com/mlworks/data-structures-stack-queue-and-heap-793f4d4d73e6)
 [Binary Search Tree In Python](https://www.geeksforgeeks.org/binary-search-tree-in-python/)
+[Python Function Recursion](https://www.w3schools.com/python/gloss_python_function_recursion.asp)
