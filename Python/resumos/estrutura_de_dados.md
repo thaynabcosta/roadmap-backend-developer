@@ -303,10 +303,102 @@ top = heap[0]
 | Queue     | FIFO            | Processamento em ordem de chegada | O(1) com `deque` |
 | Heap      | Prioridade      | Sempre pegar o menor/maior valor  | O(log n)         |
 
+## Binary Search Tree
+
+### 🌳 O que é uma Binary Search Tree (BST)?
+
+É uma árvore binária ordenada:
+- Cada nó tem no máximo dois filhos: esquerdo e direito.  
+- Regra:  
+    - Filho esquerdo < nó atual  
+    - Filho direito > nó atual
+
+### ✅ Pra que serve?
+
+- Buscar dados rapidamente (log n se balanceada)  
+- Inserir/remover de forma estruturada  
+- Estrutura base de várias outras (ex: AVL, Red-Black, B-trees)  
+- Ideal pra criar dicionários, índices, autocomplete, etc.
+
+### 🧠 Conceitos-Chave
+
+| Operação | O quê faz?                      | Tempo (ideal: árvore balanceada) |
+| -------- | ------------------------------- | -------------------------------- |
+| Inserção | Adiciona valor mantendo a ordem | O(log n)                         |
+| Busca    | Procura valor                   | O(log n)                         |
+| Remoção  | Remove valor e reorganiza       | O(log n)                         |
+
+### ⚙️ Implementação básica em Python
+
+```bash
+class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.esquerda = None
+        self.direita = None
+
+class BST:
+    def __init__(self):
+        self.raiz = None
+
+    def inserir(self, valor):
+        self.raiz = self._inserir_recursivo(self.raiz, valor)
+
+    def _inserir_recursivo(self, nodo, valor):
+        if nodo is None:
+            return Node(valor)
+        if valor < nodo.valor:
+            nodo.esquerda = self._inserir_recursivo(nodo.esquerda, valor)
+        elif valor > nodo.valor:
+            nodo.direita = self._inserir_recursivo(nodo.direita, valor)
+        return nodo
+
+    def buscar(self, valor):
+        return self._buscar_recursivo(self.raiz, valor)
+
+    def _buscar_recursivo(self, nodo, valor):
+        if nodo is None or nodo.valor == valor:
+            return nodo
+        if valor < nodo.valor:
+            return self._buscar_recursivo(nodo.esquerda, valor)
+        else:
+            return self._buscar_recursivo(nodo.direita, valor)
+
+    def em_ordem(self):  # para ver os dados ordenados
+        self._em_ordem_recursivo(self.raiz)
+
+    def _em_ordem_recursivo(self, nodo):
+        if nodo:
+            self._em_ordem_recursivo(nodo.esquerda)
+            print(nodo.valor)
+            self._em_ordem_recursivo(nodo.direita)
+```
+
+### 🧪 Exemplo de uso:
+
+```bash
+arvore = BST()
+arvore.inserir(50)
+arvore.inserir(30)
+arvore.inserir(70)
+arvore.inserir(20)
+arvore.inserir(40)
+
+arvore.em_ordem()  # Saída: 20 30 40 50 70
+
+print(arvore.buscar(40))  # Retorna o Node com valor 40
+print(arvore.buscar(100)) # Retorna None
+```
+
+### ⚠️ Limitações:
+
+- BST desbalanceada pode virar uma lista encadeada (O(n))  
+- Solução: usar árvores balanceadas (AVL, Red-Black Tree)
 
 ## Referências
 
 
 [Python Arrays](https://www-w3schools-com.translate.goog/python/python_arrays.asp?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)  
 [Python Linked Lists](https://www-geeksforgeeks-org.translate.goog/python-linked-list/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc)
-
+[Estruturas de Dados — Pilha, Fila e Heap](https://medium.com/mlworks/data-structures-stack-queue-and-heap-793f4d4d73e6)
+[Binary Search Tree In Python](https://www.geeksforgeeks.org/binary-search-tree-in-python/)
